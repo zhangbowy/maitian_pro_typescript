@@ -59,7 +59,7 @@ export default function(appInfo: EggAppConfig) {
 
   config.keys = appInfo.name + '123123';
 
-  config.middleware = ['auth', 'errorHandler' ];
+  config.middleware = ['metas', 'auth', 'errorHandler' ];
 
   config.security = {
     csrf: {
