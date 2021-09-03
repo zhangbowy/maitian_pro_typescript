@@ -7,7 +7,7 @@ export default function(appInfo: EggAppConfig) {
 
   config.keys = appInfo.name + '123123';
 
-  config.middleware = [ 'uuid' ];
+  config.middleware = [ '', 'errorHandler' ];
 
   config.security = {
     csrf: {
@@ -15,23 +15,13 @@ export default function(appInfo: EggAppConfig) {
     },
   };
 
-  config.customLoader = {
-    model: {
-      directory: 'app/model',
-      inject: 'app',
-      caseStyle: 'upper',
-    },
-  };
-
-  config.redis = {
-    client: {
-      port: 6379,          // Redis port
-      host: '127.0.0.1',   // Redis host
-      password: '',
-      db: 0,
-    },
-  };
-
+  // config.customLoader = {
+  //   model: {
+  //     directory: 'app/model',
+  //     inject: 'app',
+  //     caseStyle: 'upper',
+  //   },
+  // };
   const bizConfig = {
     local: {
       msg: 'local',
