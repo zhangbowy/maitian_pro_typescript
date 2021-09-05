@@ -59,7 +59,11 @@ export default function(appInfo: EggAppConfig) {
 
   config.keys = appInfo.name + '123123';
 
-  config.middleware = ['metas', 'auth', 'errorHandler' ];
+  config.middleware = [
+    'metas',
+    // 'auth',
+    'errorHandler' 
+  ];
 
   config.security = {
     csrf: {
@@ -74,6 +78,7 @@ export default function(appInfo: EggAppConfig) {
   //     caseStyle: 'upper',
   //   },
   // };
+  
   const bizConfig = {
     local: {
       msg: 'local',
