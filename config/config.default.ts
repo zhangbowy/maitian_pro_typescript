@@ -4,6 +4,9 @@ import { EggAppConfig, PowerPartial } from 'egg';
 
 export default function(appInfo: EggAppConfig) {
   const config = {
+    jwt: {
+      secret: "123456",
+    },
     sequelize: {
       dialect: "mysql", // 数据库类型
       host: "127.0.0.1",
