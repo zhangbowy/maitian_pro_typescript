@@ -3,3 +3,7 @@ logs
 run
 
 node_modules
+
+.DS_Store
+
+config/config.local.js
