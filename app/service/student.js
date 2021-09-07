@@ -1,5 +1,5 @@
-"use strict";
-const Service = require("egg").Service;
+'use strict';
+const Service = require('egg').Service;
 
 class StudentService extends Service {
   async saveNew(params = {}) {
@@ -12,7 +12,7 @@ class StudentService extends Service {
     const { app } = this;
     return await app.model.Student.get({
       id,
-      attributes: ["username", "type", "status", "createdTime"],
+      attributes: [ 'username', 'type', 'status', 'createdTime' ],
     });
   }
 }

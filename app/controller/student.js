@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-const Controller = require("../core/base_controller");
-const { createRule, queryRule } = require("../rule/student");
+const Controller = require('../core/base_controller');
+const { createRule, queryRule } = require('../rule/student');
 class StudentController extends Controller {
   async create() {
     const { ctx } = this;

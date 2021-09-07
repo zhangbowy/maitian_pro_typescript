@@ -1,10 +1,11 @@
-"use strict";
+'use strict';
 
-const Controller = require("../core/base_controller");
+const Controller = require('../core/base_controller');
 
 class HomeController extends Controller {
   async index() {
-    this.success("hi,egg");
+    this.ctx.logger(111);
+    this.success('hi,egg');
   }
 }
 
