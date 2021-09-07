@@ -1,4 +1,6 @@
 'use strict';
+const CustomLogger = require('./../lib/logger');
+const uuid = require('uuid');
 
 module.exports = {
   SUCCESS_CODE: 0, // 成功
@@ -84,5 +86,11 @@ module.exports = {
   verifyFail(code, message) {
     this.body = { code, message };
     this.status = code;
+  },
+  get logger() {
+    return CustomLogger(this);
+  },
+  uuid(ver = 'v4') {
+    return uuid[ver]();
   },
 };
