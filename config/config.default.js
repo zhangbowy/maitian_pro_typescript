@@ -13,7 +13,7 @@ module.exports = appInfo => {
         enable: false,
       },
     },
-    middleware: [ 'metaHandler', 'auth', 'errorHandler' ],
+    middleware: [ 'metaHandler', 'errorHandler' ],
     jwt: {
       secret: '123456',
     },

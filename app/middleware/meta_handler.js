@@ -36,7 +36,7 @@ module.exports = options => {
         }
         if (options.logRequest) {
           process.nextTick(() => {
-            ctx.logger.info('response->', `${endTime - startTime}ms`);
+            ctx.logger.info('response->', `${endTime - startTime}ms, ${JSON.stringify(ctx.body)}`);
           });
         }
         if (err) return Promise.reject(err);
