@@ -2,7 +2,6 @@
 
 'use strict';
 const fecha = require('fecha');
-const path = require('path');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
