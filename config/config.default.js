@@ -2,7 +2,6 @@
 
 'use strict';
 const fecha = require('fecha');
-const path = require('path');
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -14,7 +13,7 @@ module.exports = appInfo => {
         enable: false,
       },
     },
-    middleware: [ 'metaHandler', 'auth', 'errorHandler' ],
+    middleware: [ 'metaHandler', 'errorHandler' ],
     jwt: {
       secret: '123456',
     },

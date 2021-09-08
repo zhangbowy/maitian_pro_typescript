@@ -1,3 +1,4 @@
+'use strict';
 module.exports = app => {
   const subRouter = app.router.namespace('/order');
   // 获取订单列表
