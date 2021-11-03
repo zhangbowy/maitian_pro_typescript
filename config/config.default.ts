@@ -74,6 +74,14 @@ export default function(appInfo: EggAppConfig) {
     },
   };
 
+  config.cluster = {
+    listen: {
+      path: '',
+      port: 8001,
+      hostname: '0.0.0.0',
+    }
+};
+
   // config.customLoader = {
   //   model: {
   //     directory: 'app/model',
