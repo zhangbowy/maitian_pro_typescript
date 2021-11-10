@@ -95,7 +95,9 @@ export default function(appInfo: EggAppConfig) {
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
-  
+  config.logger = {
+    disableConsoleAfterReady: false,
+  };
   const bizConfig = {
     local: {
       msg: 'local',
