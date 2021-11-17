@@ -4,6 +4,10 @@ import { EggAppConfig, PowerPartial } from 'egg';
 
 export default function(appInfo: EggAppConfig) {
   const config = {
+    feishu: {
+      appid: 'cli_a02b668b45799013',
+      app_secret: 'HtU64rLTVEH6M8YZuItgHg4xQLCKQuqf'
+    },
     jwt: {
       secret: '123456',
     },
@@ -72,6 +76,7 @@ export default function(appInfo: EggAppConfig) {
   config.security = {
     csrf: {
       ignore: '123',
+      enable: false
     },
   };
 
@@ -108,7 +113,14 @@ export default function(appInfo: EggAppConfig) {
       maxAge: 1000 * 60 * 60 * 24 * 365 * 10,
     },
   };
-
+  config.session = {
+    key:'MAITIAN_SESSIONID',
+    maxAge: 864000,  // 过期时间
+    httpOnly: true, 
+    encrypt: true,
+    renew: true, // 延长会话有效期,
+    sameSite: 'none'
+  };
 
   return {
     ...config as {},
