@@ -97,6 +97,7 @@ export default function(appInfo: EggAppConfig) {
   // };
 
   config.cors = {
+    credentials: true,
     origin: '*',
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
@@ -113,6 +114,7 @@ export default function(appInfo: EggAppConfig) {
       maxAge: 1000 * 60 * 60 * 24 * 365 * 10,
     },
   };
+
   config.session = {
     key:'MAITIAN_SESSIONID',
     maxAge: 864000,  // 过期时间
@@ -120,6 +122,30 @@ export default function(appInfo: EggAppConfig) {
     encrypt: true,
     renew: true, // 延长会话有效期,
     sameSite: 'none'
+  };
+
+  config.io = {
+    init: {
+      wsEngine: 'ws',
+    }, // passed to engine.io
+    namespace: {
+      '/': {
+        connectionMiddleware: [
+          'auth',
+        ],
+        packetMiddleware: [],
+      },
+      '/example': {
+        connectionMiddleware: [],
+        packetMiddleware: [],
+      },
+    },
+
+    redis: {
+      host: '127.0.0.1',
+      port: 6379,
+      auth_pass: 123456
+    },
   };
 
   return {
