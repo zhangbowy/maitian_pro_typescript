@@ -102,7 +102,7 @@ export default function(appInfo: EggAppConfig) {
     origin: (ctx: any) => {
       const origin = ctx.request.header.origin;
       console.log(origin);
-      return origin || '*';
+      return '*';
     },
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
