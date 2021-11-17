@@ -100,11 +100,9 @@ export default function(appInfo: EggAppConfig) {
     credentials: true,
     // @ts-ignore
     origin: (ctx: any) => {
-      const origin = ctx.request.header.origin;
-      console.log(origin);
-      return '*';
+      return ctx.header.origin;
     },
-    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+    allowMethods: 'GET,HEAD,PUT,POST,OPTIONS'
   };
   config.logger = {
     disableConsoleAfterReady: false,
