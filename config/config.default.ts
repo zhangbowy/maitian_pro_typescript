@@ -98,7 +98,12 @@ export default function(appInfo: EggAppConfig) {
 
   config.cors = {
     credentials: true,
-    origin: '*',
+    // @ts-ignore
+    origin: (ctx: any) => {
+      const origin = ctx.request.header.origin;
+      console.log(origin);
+      return origin || '*';
+    },
     allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
   };
   config.logger = {
