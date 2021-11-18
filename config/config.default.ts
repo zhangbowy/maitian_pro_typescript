@@ -4,6 +4,7 @@ import { EggAppConfig, PowerPartial } from 'egg';
 
 export default function(appInfo: EggAppConfig) {
   const config = {
+    proxy: true,
     feishu: {
       appid: 'cli_a02b668b45799013',
       app_secret: 'HtU64rLTVEH6M8YZuItgHg4xQLCKQuqf'
