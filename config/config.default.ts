@@ -151,6 +151,7 @@ export default function(appInfo: EggAppConfig) {
       auth_pass: 123456
     },
   };
+  config.protocolHeaders = 'X-Forwarded-Proto';
 
   return {
     ...config as {},
