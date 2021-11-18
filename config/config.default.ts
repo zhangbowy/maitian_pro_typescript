@@ -124,7 +124,8 @@ export default function(appInfo: EggAppConfig) {
     httpOnly: true, 
     encrypt: true,
     renew: true, // 延长会话有效期,
-    sameSite: 'none'
+    sameSite: 'none',
+    secure: true
   };
 
   config.io = {
