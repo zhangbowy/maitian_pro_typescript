@@ -121,7 +121,7 @@ export default function(appInfo: EggAppConfig) {
 
   config.session = {
     key:'MAITIAN_SESSIONID',
-    maxAge: 864000,  // 过期时间
+    maxAge: 1000 * 60 * 60 * 4,  // 过期时间
     httpOnly: true, 
     encrypt: true,
     renew: true, // 延长会话有效期,
@@ -130,7 +130,20 @@ export default function(appInfo: EggAppConfig) {
   };
 
   config.io = {
+ 
     init: {
+      cors: {
+        // origin: "https://front-domain.com",
+        // methods: ["GET", "POST"],
+        credentials: true
+      },
+      cookie: {
+        name: 'my-cookie',
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+        maxAge: 86400,
+      },
       wsEngine: 'ws',
     }, // passed to engine.io
     namespace: {
