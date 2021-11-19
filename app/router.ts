@@ -36,7 +36,7 @@ export const Post = (path: string = ''): MethodDecorator => methodWrap(path, 'po
 export const Get = (path: string = ''): MethodDecorator => methodWrap(path, 'get');
 
 export default (app: Application): void => {
-  const { router } = app;
+  const { router, io } = app;
   // 遍历methodMap， 注册路由
   methodMap.forEach((curController: CurController, configString: string) => {
     // 请求方法, 请求路径, 方法名 
@@ -57,5 +57,7 @@ export default (app: Application): void => {
     // 不带/api前缀
     router[requestMethod](controllerPrefix + path, func);
   });
+  // @ts-ignore
+  io.of('/').route('exchange', io.controller.nsp.exchange);
 };
 

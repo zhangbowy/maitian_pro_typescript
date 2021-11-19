@@ -15,10 +15,11 @@ export default class FeishuController extends BaseController {
         const { ctx } = this;
         const { encrypt, type } = ctx.request.body;
         if (type === 'url_verification') {
-            const cipher = new AESCipher('test key');
+            const cipher = new AESCipher('zhangbo');
             console.log(cipher.decrypt(encrypt));
+            const data = JSON.parse(cipher.decrypt(encrypt));
             this.ctx.body = {
-                challenge: cipher.decrypt(encrypt)
+                challenge: data.challenge
             };
             return;
         }

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "dcpool-api",
   "scripts": {
-    "start": "npm run tsc && egg-scripts start",
-    "dev": "egg-bin dev",
+    "start": "npm run tsc && egg-scripts start --sticky",
+    "dev": "egg-bin dev --sticky",
     "tsc": "ets && tsc -p tsconfig.json",
     "clean": "ets clean",
     "test": "npm run lint -- --fix && npm run test-local",
@@ -13,7 +13,8 @@
     "lint": "tslint --fix 'app/**/*{.ts,tsx}'",
     "ci": "npm run lint && npm run cov",
     "debug": "egg-bin debug",
-    "prod": "EGG_SERVER_ENV=prod npm start"
+    "prod": "EGG_SERVER_ENV=prod npm start",
+    "start:test": "EGG_SERVER_ENV=test npm start"
   },
   "egg": {
     "typescript": true,
@@ -22,7 +23,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm run test",
+      "pre-push": "",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -47,14 +48,17 @@
     "egg-redis": "^2.4.0",
     "egg-scripts": "^2.0.0",
     "egg-sequelize": "^5.2.1",
+    "egg-socket.io": "^4.1.6",
     "egg-ts-helper": "^1.25.0",
     "egg-validate": "^2.0.2",
+    "egg-websocket": "^0.0.1",
     "koa2-ratelimit": "^0.9.0",
     "lru-cache": "^6.0.0",
     "moment": "^2.20.1",
     "mysql2": "^2.3.0",
     "prisma-lrucache-middleware": "^1.0.1",
     "reflect-metadata": "^0.1.13",
+    "socket.io-client": "^4.3.2",
     "svg-captcha": "^1.4.0",
     "tsconfig-paths": "^3.7.0",
     "tslib": "^1.8.1",
